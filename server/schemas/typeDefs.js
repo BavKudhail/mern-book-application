@@ -24,28 +24,17 @@ const typeDefs = gql`
     me: User
   }
   type Book {
-      bookId: String!
-      authors: [String]
-      description: String
-      title: String
-      image: String
-      link: String
+    bookId: String!
+    authors: [String]
+    description: String
+    title: String
+    image: String
+    link: String
+  }
+  type Auth {
+    token: ID!
+    user: User
   }
 `;
 
 module.exports = typeDefs;
-
-
-		// * `Book` type:
-
-		// 	* `bookId` (Not the `_id`, but the book's `id` value returned from Google's Book API.)
-
-		// 	* `authors` (An array of strings, as there may be more than one author.)
-
-		// 	* `description`
-
-		// 	* `title`
-
-		// 	* `image`
-
-		// 	* `link`
