@@ -119,6 +119,7 @@ You’ll need to complete the following tasks in each of these back-end files:
 
 			* `me`: Which returns a `User` type.
 
+
 		* `Mutation` type:
 
 			* `login`: Accepts an email and password as parameters; returns an `Auth` type.
