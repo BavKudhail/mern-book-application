@@ -66,6 +66,7 @@ const SearchBooks = () => {
   };
 
   const handleSaveBook = async (bookId) => {
+    // find the ID of the book that we want to save
     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
 
     // get token
@@ -76,7 +77,9 @@ const SearchBooks = () => {
     }
 
     try {
+      // send a request to out SAVE_BOOK query
       const response = await saveBook({
+        // pass in the variables
         variables: {
           book: bookToSave,
         },
@@ -85,7 +88,7 @@ const SearchBooks = () => {
       if (!response) {
         throw new Error("something went wrong!");
       }
-
+      // update state with our newly saved book
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
     } catch (err) {
       console.error(err);
