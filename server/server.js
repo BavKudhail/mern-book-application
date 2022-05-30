@@ -6,6 +6,7 @@ const { authMiddleware } = require("./utils/auth");
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 
+// run the application to the available Heroku PORT - fall back to local dev
 const PORT = process.env.PORT || 3001;
 const app = express();
 // create new Apollo Server
@@ -21,6 +22,7 @@ app.use(express.json());
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === "production") {
+  // app.use, our client build folder
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
